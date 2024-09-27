@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Run - Skylight Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 48px;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trial Run</h1>
+    <p>Upload a CSV file with up to 10 numbers for a trial call. Specify the industry, and our bot will make calls for you.</p>
+    
+    <form>
+        <label for="industry">Choose an Industry:</label>
+        <select id="industry" name="industry">
+            <option value="customer service">Customer Service</option>
+            <option value="sales">Sales</option>
+            <option value="healthcare">Healthcare</option>
+        </select>
+
+        <p>Upload CSV File:</p>
+        <input type="file" id="csvfile" name="csvfile" accept=".csv">
+        
+        <br>
+        <a href="#" class="btn" id="makeCallBtn">Make Call</a>
+    </form>
+</body>
+</html>
