@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What Skylight Does</title>
+    <title>Trial Run - Skylight Connection</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,9 +18,9 @@
         p {
             font-size: 20px;
             color: #333;
-            text-align: left;
-            max-width: 700px;
-            margin: auto;
+        }
+        input[type="file"] {
+            margin: 20px 0;
         }
         .btn {
             background-color: #4CAF50;
@@ -37,14 +37,22 @@
     </style>
 </head>
 <body>
-    <h1>How Skylight Works</h1>
-    <p>
-        Skylight Connection is an advanced AI-driven bot that can make up to 1000 phone calls every day. All you need to do is upload a CSV file with your clients’ phone numbers and names, and the bot will handle the rest! 
-        Our AI bot sounds so human-like, it’s almost impossible to tell it apart from a real person.
-    </p>
-    <p>
-        The bot works with real-time data to ensure every conversation is relevant. It can handle customer inquiries, appointment reminders, and much more – all customized to the industry type you provide.
-    </p>
-    <a href="#trial" class="btn">Try it Now</a>
+    <h1>Trial Run</h1>
+    <p>Upload a CSV file with up to 10 numbers for a trial call. Specify the industry, and our bot will make calls for you.</p>
+    
+    <form>
+        <label for="industry">Choose an Industry:</label>
+        <select id="industry" name="industry">
+            <option value="customer service">Customer Service</option>
+            <option value="sales">Sales</option>
+            <option value="healthcare">Healthcare</option>
+        </select>
+
+        <p>Upload CSV File:</p>
+        <input type="file" id="csvfile" name="csvfile" accept=".csv">
+        
+        <br>
+        <a href="#" class="btn" id="makeCallBtn">Make Call</a>
+    </form>
 </body>
 </html>
