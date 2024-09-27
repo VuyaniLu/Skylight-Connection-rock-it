@@ -3,56 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trial Run - Skylight Connection</title>
+    <title>Skylight Connection</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
         h1 {
-            color: #4CAF50;
-            font-size: 48px;
-        }
-        p {
-            font-size: 20px;
-            color: #333;
-        }
-        input[type="file"] {
-            margin: 20px 0;
-        }
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 18px;
+            text-align: center;
             margin-top: 20px;
-            display: inline-block;
+            font-size: 2.5em;
+            color: #003366;
         }
-        .btn:hover {
-            background-color: #45a049;
+        .page {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .industry-select, .csv-upload {
+            margin-bottom: 20px;
+        }
+        .floating-dock {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .ticker {
+            position: fixed;
+            bottom: 0;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .ticker span {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        /* Graphics */
+        .graphic {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .graphic img {
+            width: 200px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Trial Run</h1>
-    <p>Upload a CSV file with up to 10 numbers for a trial call. Specify the industry, and our bot will make calls for you.</p>
-    
-    <form>
-        <label for="industry">Choose an Industry:</label>
-        <select id="industry" name="industry">
-            <option value="customer service">Customer Service</option>
-            <option value="sales">Sales</option>
-            <option value="healthcare">Healthcare</option>
-        </select>
 
-        <p>Upload CSV File:</p>
-        <input type="file" id="csvfile" name="csvfile" accept=".csv">
+    <h1>Skylight Connection</h1>
+
+    <div class="page" id="cover-page">
+        <h2>What This App Does</h2>
+        <p>Our AI-powered bot can make up to 1000 calls for your business. Just upload a CSV file with phone numbers and client names, and the bot will do the work for you. With real-time data and a human-like voice, the bot will handle calls with precision and efficiency, making it indistinguishable from a real person.</p>
+    </div>
+
+    <div class="page" id="trial-run-page">
+        <h2>Trial Run</h2>
+        <p>Upload a CSV file with up to 10 numbers for a trial call. Specify the industry, and our bot will make calls for you.</p>
         
-        <br>
-        <a href="#" class="btn" id="makeCallBtn">Make Call</a>
-    </form>
+        <div class="industry-select">
+            <label for="industry">Choose an Industry:</label>
+            <select id="industry">
+                <option value="logistics">Logistics</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="cold_calling_marketing">Cold Calling Marketing</option>
+                <option value="real_estate">Real Estate - Cold Calling</option>
+                <option value="sales">Sales</option>
+                <option value="marketing">Marketing</option>
+                <option value="law_firm">Law Firm</option>
+                <option value="banking">Banking</option>
+            </select>
+        </div>
+        
+        <div class="csv-upload">
+            <label for="csvFile">Upload CSV File:</label>
+            <input type="file" id="csvFile" accept=".csv">
+        </div>
+
+        <button id="makeCallButton">Make Call</button>
+
+        <div class="graphic">
+            <img src="https://via.placeholder.com/200x150?text=Person+Making+Call" alt="Person making a call">
+        </div>
+    </div>
+
+    <!-- Floating Dock -->
+    <div class="floating-dock" id="floating-dock">
+        Calls Left for Today: <span id="calls-left">1000</span>
+    </div>
+
+    <!-- AI Fun Facts Ticker -->
+    <div class="ticker">
+        <span>AI Fun Fact: Did you know that AI can now write entire books in just a few hours? | AI Fun Fact: The first AI chatbot was created in the 1960s, called ELIZA.</span>
+    </div>
+
+    <script>
+        // JavaScript for handling the floating dock and ticker
+        document.getElementById('makeCallButton').addEventListener('click', function () {
+            const industry = document.getElementById('industry').value;
+            const csvFile = document.getElementById('csvFile').files[0];
+
+            if (csvFile) {
+                alert('Bot will make calls for the ' + industry + ' industry.');
+                // TODO: Integrate the actual call functionality with the bot and update calls-left counter.
+                document.getElementById('calls-left').innerText = "990"; // Example: Decrease the number after calls.
+            } else {
+                alert('Please upload a CSV file.');
+            }
+        });
+    </script>
+
 </body>
 </html>
